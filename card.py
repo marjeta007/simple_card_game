@@ -51,6 +51,7 @@ class Card:
     def __hash__(self):
         return hash((self.color, self.number))
 
+    # noinspection PyBroadException
     def __eq__(self, other):
         try:
             return (self.color, self.number) == (other.color, other.number)

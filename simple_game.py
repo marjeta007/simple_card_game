@@ -7,6 +7,7 @@ class Game:
     def __init__(self, players=2, initial_hand_size=0):
         self.__game_log = []
         self.round_count = 0
+        self.winner = None
         self.log("Let's set up.")
         self.draw_pile = CardDeck(name='Deck')
         self.draw_pile.shuffle()
@@ -18,12 +19,12 @@ class Game:
         self.discard_pile = CardDeck([])
         self.log("And now we're ready to play.")
 
-    def log(self, message='', color=None):
+    def log(self, message=None, color=None):
         if message:
             self.__game_log.append({
                 'time': datetime.now(),
                 'color': color,
-                'message': message,
+                'message': str(message),
             })
         return self.__game_log
 
@@ -61,31 +62,10 @@ class Game:
 
 
 def practice_game():
-    deck = CardDeck()
-    print(f'initial:  {deck}')
-    deck.shuffle()
-    print(f'shuffled: {deck}')
-    deck.sort(['red'])
-    print(f'red-sort: {deck}')
-    deck.sort(['yellow', 'green', 'red'])
-    print(f'ygr-sort: {deck}')
-    deck.shuffle()
-    print(f'shuffled: {deck}')
-    print(f'top card: {deck.top()}')
-    print(f'aftr top: {deck}')
-    print(f'drawn crd:{deck.draw()}')
-    print(f'aftr draw:{deck}')
-    for number in [6, 7, 0, -1, 10, 20]:
-        hand = deck.draw(number)
-        print(f'hand of {number}:{hand}')
-        print(f'aftr drw{number}:{deck}')
-    # print(f'top card: {deck.top()}')
-    print(f'aftr top: {deck}')
-    print(f'drawn crd:{deck.draw()}')
-    print(f'aftr draw:{deck}')
-    print(f'')
+    game = Game(players=2, initial_hand_size=0)
+    return game.play(rounds=3)
 
 
 if __name__ == '__main__':
-    game = Game(players=2, initial_hand_size=0)
-    log = game.play(rounds=3)
+    log = practice_game()
+    print('\n'.join([str(log_item['message']) for log_item in log]))
