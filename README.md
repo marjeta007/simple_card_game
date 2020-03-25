@@ -21,11 +21,11 @@ i.e. If the deck has a card contains with following order
 
    then
  
-      `Sort cards([yellow, green, red])`
+     `Sort cards([yellow, green, red])`
  
    will return the cards with following order:
      
-      `(yellow, 3), (green, 0), (green, 5), (red, 0), (red, 1)` 
+       `(yellow, 3), (green, 0), (green, 5), (red, 0), (red, 1)` 
 
 4. Determine winners:
 
@@ -38,7 +38,7 @@ i.e. If the deck has a card contains with following order
    Color point calculation:
 
       `red = 3,
-      yellow =2,
+      yellow = 2,
       green = 1`
       
    The point is calculated by `color point * number` in the card.   
