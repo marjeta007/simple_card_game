@@ -15,11 +15,11 @@ class CardList:
 
     def __repr__(self):
         name = f'{self.name}:' if self.name else ''
-        return f'{name}{str(self._cards)}'
+        return f'{name}[{", ".join([repr(card) for card in self._cards])}]'
 
     def __str__(self):
         name = f'{self.name}:' if self.name else ''
-        return f'{name}{str([str(card) for card in self._cards])}'
+        return f'{name}[{", ".join([str(card) for card in self._cards])}]'
 
     def __len__(self):
         return len(self._cards)

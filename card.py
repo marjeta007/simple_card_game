@@ -40,7 +40,7 @@ class Card:
         cls.color_order = color_order
 
     def __str__(self):
-        return f'({self.color}, {self.number})'
+        return f'{self.color} {self.number}'
 
     def __repr__(self):
         return f'{str(self.color)[0]}{self.number}'
@@ -55,7 +55,7 @@ class Card:
     def __eq__(self, other):
         try:
             return (self.color, self.number) == (other.color, other.number)
-        except:
+        except Exception:
             return False
 
     def __gt__(self, other):
